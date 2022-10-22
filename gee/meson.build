@@ -90,9 +90,6 @@ valasources = files ([
 
 sources = files ([])
 
-includehdir = include_directories ('.')
-includehdir_dep = declare_dependency (include_directories : includehdir)
-
 internal_asserts_opt = get_option ('disable-internal-asserts')
 internal_asserts_args = []
 if internal_asserts_opt
@@ -128,6 +125,10 @@ gee = library('gee-@0@'.format(API_VERSION),
 		true,
 		true,
 	])
+
+includehdir = include_directories ('.')
+gee_dep = declare_dependency(link_with : gee,
+  include_directories : includehdir)
 
 if disable_introspection
 else

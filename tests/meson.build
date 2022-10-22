@@ -43,7 +43,7 @@ testf = files ([
 t = executable('tests',
 	testf,
 	vala_args : ['--pkg', 'geeutils', '--pkg', 'posix'],
-	dependencies : [ gio, include_utils_h_dir_dep, includehdir_dep ],
+	dependencies : [ gio, include_utils_h_dir_dep, gee_dep ],
 	link_with: gee
 )
 
